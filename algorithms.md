@@ -177,7 +177,11 @@ public ListNode ReverseList(ListNode head)
 
     while (curr != null)
     {
-      //What code could go here
+        // You want to change curr.next to equal the previous item, not the next item. 
+        // 1. Store curr.next
+        // 2. Change curr.next to point to the previous value
+        // 3. Ready the loop for the next pass by updating prev
+        // 4. Ready the loop for the next pass by updating curr.
     }
 
     return prev;

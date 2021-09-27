@@ -6,7 +6,7 @@ namespace LinkedListsTraining
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Running the program does nothing!");
+            
         }
     }
 }

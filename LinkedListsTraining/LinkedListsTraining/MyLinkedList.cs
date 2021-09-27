@@ -13,19 +13,27 @@ namespace LinkedListsTraining
         /** Initialize your data structure here. */
         public MyLinkedList()
         {
-            throw new NotImplementedException();
-        }
+            int[] numbers = { 1, 2, 3, 4, 5 };
+        }   
 
         /** Get the val of the index-th node in the linked list. If the index is invalid, return -1. */
         public int Get(int index)
         {
-            throw new NotImplementedException();
+            if (index > 0) return -1;
+            for (int i = 0; i < index; i++)
+            {
+                Console.WriteLine(i);
+            }
+            return index;
+
         }
 
         /** Add a node of val val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
         public void AddAtHead(int val)
         {
-            throw new NotImplementedException();
+            ListNode newNode = new ListNode(val);
+            newNode.next = Head;
+            Head = newNode;
         }
 
         /** Append a node of val val to the last element of the linked list. */
@@ -34,7 +42,7 @@ namespace LinkedListsTraining
             throw new NotImplementedException();
         }
 
-        /** Add a node of val val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+        /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
         public void AddAtIndex(int index, int val)
         {
             throw new NotImplementedException();

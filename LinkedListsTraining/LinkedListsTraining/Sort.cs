@@ -10,11 +10,7 @@ namespace LinkedListsTraining
     {
         public static void Bubble(int[] arr)
         {
-<<<<<<< HEAD
-            for (var i = 0; i < arr.Length - 1; i++)
-=======
             for(var i = 0; i < arr.Length - 1; i++)
->>>>>>> 0a600bfd29ef7acb265ce19ac8d211ece85710c6
             {
                 for (var k = 0; k < arr.Length - 1 - i; k++)
                 {
@@ -51,8 +47,8 @@ namespace LinkedListsTraining
             for (int i = 1; i < arr.Length; i++)
             {
                 int val = arr[i];
-                //int flag = 0;
-                for (int j = i - 1; j >= 0 && /*flag != 1*/;)
+                int flag = 0;
+                for (int j = i - 1; j >= 0 && flag != 1;)
                 {
                     if (val < arr[j])
                     {
@@ -60,7 +56,7 @@ namespace LinkedListsTraining
                         j--;
                         arr[j + 1] = val;
                     }
-                    //else flag = 1;
+                    else flag = 1;
                 }
             }
         }

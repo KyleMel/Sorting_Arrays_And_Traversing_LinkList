@@ -26,16 +26,55 @@ namespace LinkedListsTraining
                     next.Print();
                 }
             }
+            public void AddToEnd(int data)
+            {
+                if (next == null)
+                {
+                    next = new Node(data);
+                }
+                else
+                {
+                    next.AddToEnd(data);
+                }
+            }
+        }
+
+        public class MyList
+        {
+            public Node headNode;
+            public MyList()
+            {
+                headNode = null;
+            }
+            public void AddToEnd(int data)
+            {
+                if (headNode == null)
+                {
+                    headNode = new Node(data);
+                }
+                else
+                {
+                    headNode.AddToEnd(data);
+                }
+            }
+            public void Print()
+            {
+                if (headNode != null)
+                {
+                    headNode.Print();
+                }
+            }
         }
         class Program
         {
             static void Main(string[] args)
             {
-                Node node = new Node(1);
-                node.next = new Node(2);
-                node.next.next = new Node(3);
-                node.next.next.next = new Node(5);
-                node.Print();
+                MyList list = new MyList();
+                list.AddToEnd(1);
+                list.AddToEnd(2);
+                list.AddToEnd(3);
+                list.AddToEnd(4);
+                list.Print();
             }
         }
     }

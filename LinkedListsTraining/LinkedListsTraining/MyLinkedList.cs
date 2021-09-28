@@ -60,6 +60,18 @@ namespace LinkedListsTraining
             {
                 AddAtTail(val);  
             }
+            else if (index == 0)
+            {
+                AddAtHead(val);
+            }
+            else if (index < count && index > 0)
+            {
+                ListNode temp = head;
+            for (int i = 0;i < index + 1; i++)
+                {
+                    temp = temp.next;
+                }
+            }
             else if (index > count)
             {
                 return;
@@ -69,32 +81,7 @@ namespace LinkedListsTraining
         /** Delete the index-th node in the linked list, if the index is valid. */
         public void DeleteAtIndex(int index)
         {
-            if (count == 0 || index < 0 || index >= count)
-            {
-                return;
-            }
-            if (index == 0)
-            {
-                head = head.next;
-                count--;
-                if (count == 0)
-                {
-                    head = null;
-                }
-            }
-            else
-            {
-                ListNode newNode = head;
-                for (int i = 0; i < index - 1; i++)
-                {
-                    newNode = newNode.next;
-                }
-                newNode.next = newNode.next.next;
-                count--;
-                if (newNode.next == null)
-                {
-                    head = newNode;
-                }
+    
             }
         }
     }

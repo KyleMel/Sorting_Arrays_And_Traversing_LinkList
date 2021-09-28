@@ -8,22 +8,23 @@ namespace LinkedListsTraining
 {
     public class MyLinkedList
     {
-        public ListNode Head { get; set; }
-        public ListNode Tail { get; set; }
-        public int Count { get; set; }
+        public ListNode head { get; set; }
+        public int count { get; set; }
 
         /** Initialize your data structure here. */
         public MyLinkedList()
         {
-            Head = null;
-            Tail = null;
-            Count = 0;
+            head = null;
+            count = 0;
         }
         /** Get the val of the index-th node in the linked list. If the index is invalid, return -1. */
         public int Get(int index)
         {
-            if (index > Count) return -1;
-            ListNode temp = Head;
+            if (index <= -1)
+            { 
+                return -1;
+            }
+            ListNode temp = head;
             for (int i = 0; i < index; i++)
             {
                 temp = temp.next;
@@ -35,30 +36,18 @@ namespace LinkedListsTraining
         public void AddAtHead(int val)
         {
             ListNode newNode = new ListNode(val);
-            newNode.next = Head;
-            Head = newNode;
-            Count++;
-
-            if (Head.next == null)
-            {
-                Tail = Head;
-            }
+            newNode.next = head;
+            head = newNode;
         }
 
-        /** Append a node of val val to the last element of the linked list. */
+        /** Append a node of value val to the last element of the linked list. */
         public void AddAtTail(int val)
         {
             ListNode newNode = new ListNode(val);
-            if (Tail != null)
+            if (head == null || count == 0)
             {
-                Tail.next = newNode;
+                head = newNode;
             }
-            else if (Tail == null || Count == 0)
-            {
-                Head = newNode;
-            }
-            Tail = newNode;
-            Count++;
         }
 
         /** Add a node of value val before the index-th node in the linked list. 
@@ -67,61 +56,45 @@ namespace LinkedListsTraining
          * will not be inserted. */
         public void AddAtIndex(int index, int val)
         {
-            if (index < 0 || index > Count) return;
-            if (index == 0)
+            if (index == count)
             {
-                AddAtHead(val);  
+                AddAtTail(val);  
             }
-            else if (index == Count)
+            else if (index > count)
             {
-                AddAtTail(val);
-            }
-            else
-            {
-                ListNode temp = Head;
-                for (int i = 0; i < index - 1; i++)
-                {
-                    temp = temp.next;
-                }
-                ListNode n = new ListNode(val);
-                ListNode save = temp;
-                temp = temp.next;
-                save.next = n;
-                n.next = temp;
-                Count++;
+                return;
             }
         }
 
         /** Delete the index-th node in the linked list, if the index is valid. */
         public void DeleteAtIndex(int index)
         {
-            if (Count == 0 || index < 0 || index >= Count)
+            if (count == 0 || index < 0 || index >= count)
             {
                 return;
             }
             if (index == 0)
             {
-                Head = Head.next;
-                Count--;
-                if (Count == 0)
+                head = head.next;
+                count--;
+                if (count == 0)
                 {
-                    Tail = null;
+                    head = null;
                 }
             }
             else
             {
-                ListNode newNode = Head;
+                ListNode newNode = head;
                 for (int i = 0; i < index - 1; i++)
                 {
                     newNode = newNode.next;
                 }
                 newNode.next = newNode.next.next;
-                Count--;
+                count--;
                 if (newNode.next == null)
                 {
-                    Tail = newNode;
+                    head = newNode;
                 }
-
             }
         }
     }

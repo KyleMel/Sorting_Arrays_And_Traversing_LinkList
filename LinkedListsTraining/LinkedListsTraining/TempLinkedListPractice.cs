@@ -57,6 +57,19 @@ namespace LinkedListsTraining
                     headNode.AddToEnd(data);
                 }
             }
+            public void AddToHead(int data)
+            {
+                if (headNode == null)
+                {
+                    headNode = new Node(data);
+                }
+                else
+                {
+                    Node temp = new Node(data);
+                    temp.next = headNode;
+                    headNode = temp;
+                }
+            }
             public void Print()
             {
                 if (headNode != null)
@@ -70,10 +83,11 @@ namespace LinkedListsTraining
             static void Main(string[] args)
             {
                 MyList list = new MyList();
-                list.AddToEnd(1);
-                list.AddToEnd(2);
                 list.AddToEnd(3);
                 list.AddToEnd(4);
+                list.AddToEnd(5);
+                list.AddToHead(1);
+                list.AddToHead(2);
                 list.Print();
             }
         }
